@@ -40,7 +40,7 @@ def brute():
             elif(arg2=="-b"):
                 guess2=guess.encode('utf-8')
                 if bcrypt.checkpw(guess2,password2)==True:
-                    print("Password " + password + " has been cracked!")
+                    print("Password " + guess + " has been cracked!")
                     endTime=time.time()
                     finalTime=(endTime-startTime)
                     print("It took " + str(finalTime) + " seconds to crack this password")
@@ -50,7 +50,7 @@ def brute():
             elif(arg3=="-v"):
                 print(guess2)
             if (guess2 == password):
-                print("Password " + password + " has been cracked!")
+                print("Password " + guess + " has been cracked!")
                 endTime=time.time()
                 finalTime=(endTime-startTime)
                 print("It took " + str(finalTime) + " seconds to crack this password")
@@ -70,9 +70,9 @@ def dict():
             elif(arg2=="-s"):
                 line2=hashlib.sha256(lineB.encode('UTF-8')).hexdigest()
             if(arg4=="-v"):
-                print(line2)
+                print(line2())
             elif(arg3=="-v"):
-                print(line2)
+                print(line2())
             if line2() == password:
                 print("\nYour password kinda sucks lol")
                 raise SystemExit
