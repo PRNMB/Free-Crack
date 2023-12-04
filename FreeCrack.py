@@ -71,6 +71,13 @@ def dict():
             elif(arg2=="-s"):
                 lineB = line.replace('\n','')
                 lineB=hashlib.sha256(lineB.encode('UTF-8')).hexdigest()
+            if arg2 == '-b':
+                lineB = line.replace('\n','')
+                lineB = lineB.encode('utf-8')
+                lineB = lineB.lower()
+                if bcrypt.checkpw(lineB, password2) == True:
+                    print("\nYour password kinda sucks lol")
+                    raise SystemExit
             if(arg4=="-v"):
                 print(lineB)
             elif(arg3=="-v"):
