@@ -57,23 +57,25 @@ def brute():
                 raise SystemExit
 
 def dict():
+    password2=password.encode('utf-8')
     numbChecked = int(0)
     lineNumb = int(0)
     with open('10-million-password-list-top-1000000.txt') as fopen:
         for line in fopen.readlines():
             lineNumb += 1
-            lineB = line.strip
             if(arg2=="-p"):
-                line2=lineB
+                lineB = line.replace('\n','')
             elif(arg2=="-m"):
-                line2=hashlib.md5(lineB.encode('utf-8')).hexdigest()
+                lineB = line.replace('\n','')
+                lineB=hashlib.md5(lineB.encode('utf-8')).hexdigest()
             elif(arg2=="-s"):
-                line2=hashlib.sha256(lineB.encode('UTF-8')).hexdigest()
+                lineB = line.replace('\n','')
+                lineB=hashlib.sha256(lineB.encode('UTF-8')).hexdigest()
             if(arg4=="-v"):
-                print(line2())
+                print(lineB)
             elif(arg3=="-v"):
-                print(line2())
-            if line2() == password:
+                print(lineB)
+            if lineB == password:
                 print("\nYour password kinda sucks lol")
                 raise SystemExit
             else:
