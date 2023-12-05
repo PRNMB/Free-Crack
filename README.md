@@ -98,10 +98,10 @@ tier 2 arguments:
 '-b' stands for b-crypt, it hashes the guesses into b-crypt
 ```
 ```sh
-Other arguments:
+tier DELUXE arguments:
 
 '-v' stands for view, it shows all the guesses the code is making
 
 '-t' stands for true, if toggled to true, the code will auto encrypt the inputted password into the selected hash (doesn't work for b-crypt)
 ```
-Arguments MUST come in this order: python3 FreeCrack.py (tier 1 argument) (password) (tier 2 argument) (other argument)
+Arguments MUST come in this order: python3 FreeCrack.py (tier 1 argument) (password) (tier 2 argument) (tier DELUXE arguments)
