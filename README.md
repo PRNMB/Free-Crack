@@ -1,5 +1,7 @@
 # Free-Crack
 
+"If you need to crack some passwords, THIS is the program you need." - vanssx3 (creator of Crackma)
+
 Free Crack is a functional brute force and dictionary attack password cracker that can crack plaintext passwords, SHA-256 passwords, Bcrypt passwords, and MD 5 passwords.
 
 # Dependencies
