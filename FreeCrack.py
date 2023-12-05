@@ -24,7 +24,8 @@ if len(sys.argv)>=5:
             password=password=hashlib.md5(password.encode('utf-8')).hexdigest()
         elif(arg2=="-s"):
              password=hashlib.sha256(password.encode('UTF-8')).hexdigest()
-
+if len(sys.argv) > 6:
+    print("You aren't the brightest tool in the shed if you put in more arguments than acceptable")
 #defining the brute force program, super cool and stuff
 def brute():
     startTime = time.time()
@@ -98,9 +99,40 @@ def dict():
     if ((lineNumb - numbChecked) == 0):
         print("\nYour password is not common")
         raise SystemExit
-        
+
+check = 0
+if((arg1 != "brute")and(arg1 != "dict")):
+    print("Why are you stupid?")
+    check = check + 1
 #defining some arguments
 if(arg1 == "brute"):
-    brute()
+    if(arg2 != "-p") and (arg2 != "-m") and (arg2 != "-s") and (arg2 != "-b"):
+        print("Were you dropped on your head as a child?")
+        check = check + 1
+    if(len(sys.argv)>=5) and (arg3 != "-v") and (arg3 != "-t") and (arg3 != " "):
+        print("You should consider reading the README")
+        check = check + 1
+    if(len(sys.argv)==6) and (arg4 != "-v") and (arg4 != " "):
+        print("Just quit trying, this stopped being funny")
+        check = check + 1
+    if(check > 0):
+        raise SystemExit
+    elif(check == 0):
+        brute()
 if(arg1 == "dict"):
-    dict()
+    if(arg2 != "-p") and (arg2 != "-m") and (arg2 != "-s") and (arg2 != "-b"):
+        print("Were you dropped on your head as a child?")
+        check = check + 1
+    if(len(sys.argv)>=5) and (arg3 != "-v") and (arg3 != "-t") and (arg3 != " "):
+        print("You should consider reading the README")
+        check = check + 1
+    if(len(sys.argv)==6) and (arg4 != "-v") and (arg4 != " "):
+        print("Just quit trying, this stopped being funny")
+        check = check + 1
+    if(check > 0):
+        raise SystemExit
+    elif(check == 0):
+        dict()
+
+    
+
