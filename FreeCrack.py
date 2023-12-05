@@ -1,3 +1,4 @@
+#imports and stuff for stuff, don't worry about it
 import sys
 import itertools
 import string
@@ -5,13 +6,12 @@ import hashlib
 import time
 import bcrypt
 
+#uuuuhhhh like setting variables for like varying and stuff
 max = 10
 all = string.printable 
 arg4 = ""
 arg3 = ""
 guess2 = ""
-#python knows what an argument is, argv is just the argument at location after cmd
-#inside brackets, cmd is python3 FreeCrack.py arg1 agr2 etc
 arg1 = sys.argv[1]     
 password = sys.argv[2]
 arg2 = sys.argv[3]
@@ -24,13 +24,15 @@ if len(sys.argv)>=5:
             password=password=hashlib.md5(password.encode('utf-8')).hexdigest()
         elif(arg2=="-s"):
              password=hashlib.sha256(password.encode('UTF-8')).hexdigest()
+
+#defining the brute force program, super cool and stuff
 def brute():
     startTime = time.time()
     password2=password.encode('utf-8')
     for length in range(1,max):
         for combination in itertools.product(all, repeat=length):
             guess = "".join(combination)
-            
+            #arguments and stuff for brute forcing
             if(arg2=="-p"):
                 guess2=guess
             elif(arg2=="-m"):
@@ -49,6 +51,7 @@ def brute():
                 print(guess2)
             elif(arg3=="-v"):
                 print(guess2)
+            #checking if the guess equals the password, very cool
             if (guess2 == password):
                 print("Password " + guess + " has been cracked!")
                 endTime=time.time()
@@ -56,13 +59,17 @@ def brute():
                 print("It took " + str(finalTime) + " seconds to crack this password")
                 raise SystemExit
 
+#defining the dictionary attack, not very cool
 def dict():
+    #more variable defining
     password2=password.encode('utf-8')
     numbChecked = int(0)
     lineNumb = int(0)
+    #itterating through the most common 9,999,998 passwords
     with open('10-million-password-list-top-1000000.txt') as fopen:
         for line in fopen.readlines():
             lineNumb += 1
+            #arguments for dictionary attack
             if(arg2=="-p"):
                 lineB = line.replace('\n','')
             elif(arg2=="-m"):
@@ -82,6 +89,7 @@ def dict():
                 print(lineB)
             elif(arg3=="-v"):
                 print(lineB)
+            #checking if the current password in the list of 9,999,998 matches the inputed password
             if lineB == password:
                 print("\nYour password kinda sucks lol")
                 raise SystemExit
@@ -91,7 +99,7 @@ def dict():
         print("\nYour password is not common")
         raise SystemExit
         
-
+#defining some arguments
 if(arg1 == "brute"):
     brute()
 if(arg1 == "dict"):
