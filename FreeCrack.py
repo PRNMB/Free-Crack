@@ -15,6 +15,7 @@ guess2 = ""
 arg1 = sys.argv[1]     
 password = sys.argv[2]
 arg2 = sys.argv[3]
+#argument amounts
 if len(sys.argv) == 6:
     arg4 = sys.argv[5]
 if len(sys.argv)>=5:
@@ -99,12 +100,11 @@ def dict():
     if ((lineNumb - numbChecked) == 0):
         print("\nYour password is not common")
         raise SystemExit
-
+#creating error messages for improper arguments
 check = 0
 if((arg1 != "brute")and(arg1 != "dict")):
     print("Why are you stupid?")
     check = check + 1
-#defining some arguments
 if(arg1 == "brute"):
     if(arg2 != "-p") and (arg2 != "-m") and (arg2 != "-s") and (arg2 != "-b"):
         print("Were you dropped on your head as a child?")
@@ -118,6 +118,7 @@ if(arg1 == "brute"):
     if(check > 0):
         raise SystemExit
     elif(check == 0):
+        #calling dictionary attack
         brute()
 if(arg1 == "dict"):
     if(arg2 != "-p") and (arg2 != "-m") and (arg2 != "-s") and (arg2 != "-b"):
@@ -132,6 +133,7 @@ if(arg1 == "dict"):
     if(check > 0):
         raise SystemExit
     elif(check == 0):
+        #calling dictionary attack
         dict()
 
     
